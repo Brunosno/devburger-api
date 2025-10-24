@@ -47,7 +47,6 @@ class UserController{
     }
 
     async index(req, res){
-
         try{
             const users = await User.findAll();
             return res.status(200).json(users);
@@ -89,7 +88,7 @@ class UserController{
                     id: id
                 }
             })
-            return res.status(200).json();
+            return res.status(200).json({message: 'User updated successfully'});
         } catch(err){
             return res.status(404).json({error: err.errors})
         }
